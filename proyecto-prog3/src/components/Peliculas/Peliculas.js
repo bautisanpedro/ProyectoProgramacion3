@@ -1,26 +1,26 @@
 import React, { Component } from 'react'
-import Character from '../Pelicula/Character';
+import Pelicula from '../Pelicula/Pelicula';
 import Search from '../Search/Search'
 import Filtro from '../Filtro/Filtro';
 
 
 
-class Characters extends Component {
+class Peliculas extends Component {
 
     constructor(props){
         super(props)
         this.state={
-            personajes: [],
+            peliculas: [],
             backup:[],
             prueba:''
         }
     }
 
     componentDidMount(){
-        fetch('https://rickandmortyapi.com/api/character')
+        fetch('https://api.themoviedb.org/3/movie/550?api_key=6e9de608b8eb72c41459072aa8da9928')
         .then(resp => resp.json())
         .then(data => this.setState({
-            personajes: data.results,
+            peliculas: data.results,
             backup:data.results
         }))
         .catch(err => console.log(err)) 
@@ -30,17 +30,17 @@ class Characters extends Component {
     }
 
     borrar(name){
-        let personajesFiltrado = this.state.personajes.filter(personaje => personaje.name !== name)
+        let peliculasFiltradas = this.state.peliculas.filter(pelicula => pelicula.name !== name)
         this.setState({
-            personajes: personajesFiltrado
+            peliculas: peliculasFiltradas
         })
     }
 
     buscarPersonajes(nombre){
-        fetch(`https://rickandmortyapi.com/api/character/?name=${nombre}`)
+        fetch(`${nombre}`)
         .then(resp => resp.json())
         .then(data => this.setState({
-            personajes: data.results
+            peliculas: data.results
         }))
         .catch(err => console.log(err))
     }
@@ -49,10 +49,10 @@ class Characters extends Component {
     filtrarPersonajes(nombre){
         let arrayFiltrado = 
         this.state.backup.filter
-        (personaje => personaje.name.toLowerCase().includes(nombre.toLowerCase()))
+        (pelicula => pelicula.name.toLowerCase().includes(nombre.toLowerCase()))
 
         this.setState({
-            personajes: arrayFiltrado
+            peliculas: arrayFiltrado
         })
     }
 
@@ -60,11 +60,11 @@ class Characters extends Component {
     console.log('Soy el Render')
     return (
         <>
-        <Filtro filtro={(nombre)=> this.filtrarPersonajes(nombre)} />
+        <Filtro filtro={(nombre)=> this.filtrarPeliculas(nombre)} />
         <section className="card-container">
             {
-                this.state.personajes.length > 0 ?
-                    this.state.personajes.map((personaje, idx) => 
+                this.state.peliculas.length > 0 ?
+                    this.state.peliculas.map((pelicula, idx) => 
                     <Character 
                     key={personaje + idx} 
                     info={personaje} 
@@ -79,4 +79,4 @@ class Characters extends Component {
 }
 
 
-export default Characters
+export default Peliculas

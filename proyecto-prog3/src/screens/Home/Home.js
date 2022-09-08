@@ -8,7 +8,9 @@ class Home extends Component {
   render() {
     return (
       <>
-        <
+        <Cards />
+        <Categories />
+        <Characters />
       </>
     )
   }
