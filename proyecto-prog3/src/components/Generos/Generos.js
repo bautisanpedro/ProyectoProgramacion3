@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
-import Category from '../Genero/Generos'
+import Genero from '../Genero/Genero'
 
-const categorias = ['1','2','3','4','5','6',]
 
-class Categories extends Component {
+class Generos extends Component {
   render(){
     return (
       <>
-          <h2>Categories in database</h2>
+          <h2> Generos in database</h2>
           <section className='general-data'>
-          {categorias.map( (categoria, idx) => <Category key={categoria + idx} number={categoria} />)}
+          {categorias.map( (categoria, idx) => <Genero key={categoria + idx} number={categoria} />)}
           </section>
       </>
     )
   }
 }
 
-export default  Categories
+export default Generos

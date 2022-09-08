@@ -38,7 +38,7 @@ class Character extends Component {
             <button onClick={()=>this.verMas()}>Ver más</button>
             <button onClick={()=> this.props.borrar(this.props.info.name)}>Borrar</button>
       </div>
- 
+    )
   }
 }
 

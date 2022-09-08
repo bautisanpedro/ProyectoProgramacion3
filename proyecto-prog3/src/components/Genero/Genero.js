@@ -1,12 +1,12 @@
 import React from 'react'
 
 
-function Category(props) {
+function Genero (props) {
   return (
     <article className='card'>
-        <p>Category {props.number}</p>
+        <p> Genero {props.number}</p>
     </article>
   )
 }
 
-export default Category
+export default Genero
