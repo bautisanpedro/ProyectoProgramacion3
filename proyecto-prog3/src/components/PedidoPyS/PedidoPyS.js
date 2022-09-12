@@ -19,7 +19,7 @@ class PedidoPyS extends Component {
     
     //Peliculas
 
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`)
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
     .then(res => res.json())
     .then (data => this.setState({
       peliculas: data.results
@@ -28,24 +28,25 @@ class PedidoPyS extends Component {
 
     //Series
 
-    fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=en-US&page=1`)
+    fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=en-US&page=1`)
     .then(res => res.json())
     .then (data => this.setState({
       series: data.results
     }))
     .catch(e=> console.log(e))
+ 
   }
 
 
   render () {
     console.log(this.state.peliculas)
+    console.log(this.state.series);
     return (
       <>
        {/*<div>
                 {this.state.datos === ""?
                 <h3>Cargando...</h3> :
                 <h3>{this.state.peliculas}</h3>}
-                <p>Hola mundo</p>
         </div>*/}
       <div>
          <h2>Peliculas Populares</h2> 
