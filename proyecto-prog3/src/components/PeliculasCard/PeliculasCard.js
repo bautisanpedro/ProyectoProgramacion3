@@ -2,12 +2,13 @@ import React, {Component} from 'react'
 import './styles.css'
 
 
-class Character extends Component {
+class peliculasCard extends Component {
 
   constructor(props){
     super(props)
     this.state ={
-      verMas: 'hide'
+      verMas: 'hide',
+      favorito: false
     }
   }
 
@@ -38,8 +39,13 @@ class Character extends Component {
             <button onClick={()=>this.verMas()}>Ver más</button>
             <button onClick={()=> this.props.borrar(this.props.info.name)}>Borrar</button>
       </div>
+
     )
   }
-}
 
-export default Character
+ 
+  }
+
+
+
+export default peliculasCard
