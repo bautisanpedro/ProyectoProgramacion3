@@ -1,39 +1,61 @@
 /* Resets */
-*{
+* {
     box-sizing: border-box;
 }
-ul,ol {
+
+ul,
+ol {
     padding: 0;
 }
+
 li {
-    list-style-type:none;
+    list-style-type: none;
 }
+
 a {
     text-decoration: none;
     color: #000;
 }
+
 body {
-    font-family: Nunito;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     background-color: #eee;
 }
 
 /* Navigation */
-nav{
+nav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 0 20px;
-    background-color: #4e73df;
-    color: #fff
+    background-color: #330a8a;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
 }
 
 nav ul {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
+    order: 2;
+}
+
+.busqueda {
+    order: 3;
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
+
+}
+
+.busqueda input {
+    border-radius: 15px;
+    height: 40px;
+    width: auto;
+    padding: 10px;
+    font-size: 14px;
 }
 
 .main-nav li,
@@ -43,11 +65,10 @@ nav ul {
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
+    padding: 50px;
+    font-size: 20px;
 }
 
-.main-nav li:first-child {
-    font-weight: bold;
-}
 
 .user img {
     width: 30px;
@@ -55,7 +76,8 @@ nav ul {
     margin-left: 10px;
 }
 
-h1,h2 {
+h1,
+h2 {
     font-weight: 400;
 }
 
@@ -63,6 +85,12 @@ h1,
 main {
     padding: 0 30px;
 }
+
+.logo {
+    max-width: 200px;
+
+}
+
 
 /* Top data */
 .top-data {
@@ -72,6 +100,7 @@ main {
     justify-content: space-between;
     color: #666;
 }
+
 .data-detail {
     width: 32%;
     border-radius: 4px;
@@ -84,9 +113,11 @@ main {
     justify-content: space-between;
     align-items: center;
 }
+
 .data-detail p {
-    margin-top:0;
+    margin-top: 0;
 }
+
 .data-detail h4 {
     margin-bottom: 0;
 }
@@ -100,6 +131,7 @@ main {
     background-color: #fff;
     padding: 20px 20px 10px 20px;
 }
+
 .general-data .card {
     width: 32%;
     border-radius: 4px;
@@ -111,40 +143,46 @@ main {
 
 
 /*Characters*/
-.card-container{
+.card-container {
     display: flex;
     align-items: flex-start;
-    flex-wrap:wrap ;
+    flex-wrap: wrap;
     justify-content: center;
 }
+
 /* Resets */
-*{
+* {
     box-sizing: border-box;
 }
-ul,ol {
+
+ul,
+ol {
     padding: 0;
 }
+
 li {
-    list-style-type:none;
+    list-style-type: none;
 }
+
 a {
     text-decoration: none;
-    color: #000;
+    color: #eee;
 }
+
 body {
-    font-family: Nunito;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     background-color: #eee;
 }
 
 /* Navigation */
-nav{
+nav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 20px;
-    background-color: #4e73df;
+    background-color: #5e17eb;
     color: #fff
 }
 
@@ -164,17 +202,14 @@ nav ul {
     align-items: center;
 }
 
-.main-nav li:first-child {
-    font-weight: bold;
-}
-
 .user img {
     width: 30px;
     border-radius: 90%;
     margin-left: 10px;
 }
 
-h1,h2 {
+h1,
+h2 {
     font-weight: 400;
 }
 
@@ -183,56 +218,33 @@ main {
     padding: 0 30px;
 }
 
-/* Top data */
-.top-data {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    color: #666;
-}
-.data-detail {
-    width: 32%;
-    border-radius: 4px;
-    background-color: #fff;
-    padding: 10px 30px;
-    text-transform: capitalize;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.data-detail p {
-    margin-top:0;
-}
-.data-detail h4 {
-    margin-bottom: 0;
+.logo {
+    max-width: 200px;
+
 }
 
-/* Categorías */
-.general-data {
+/* Home */
+.titulo-pp {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.peliculaspopulares {
+    font-family: 'Inter', sans-serif;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 20px 20px 10px 20px;
-}
-.general-data .card {
-    width: 32%;
-    border-radius: 4px;
-    background-color: #36b9cc;
-    margin-bottom: 10px;
-    padding: 0 20px;
-    color: #fff;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 30px;
+    background-color: #5e17eb;
+    padding: 20px;
+    max-width: fit-content;
+    border-radius: 20px;
 }
 
+.peliculaspopulares img {
+    max-width: 220px;
+    border-radius: 15px;
 
-/*Characters*/
-.card-container{
-    display: flex;
-    align-items: flex-start;
-    flex-wrap:wrap ;
-    justify-content: center;
 }

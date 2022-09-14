@@ -1,51 +1,47 @@
-import React, {Component} from 'react'
-import './styles.css'
+import React, { Component } from 'react'
+import { Link } from "react-router-dom"
 
 
-class peliculasCard extends Component {
 
-  constructor(props){
+class PeliculasCard extends Component {
+
+  constructor(props) {
     super(props)
-    this.state ={
+    this.state = {
       verMas: 'hide',
-      favorito: false
+      favoritos: false
+
     }
   }
-
-  verMas(){
-    if(this.state.verMas === 'show'){
+  verMas() {
+    if (this.state.verMas === 'show') {
       this.setState({
-        verMas:'hide'
+        verMas: 'hide'
       })
     } else {
       this.setState({
-        verMas:'show'
+        verMas: 'show'
       })
     }
   }
 
-
-  render(){
+  render() {
     return (
-      <div className="character-card">
-            <img src={this.props.info.image} alt="" />
-            <h4>{this.props.info.name}</h4>
-            <p>Character description</p>
-            <p>{this.props.info.species}</p>
-            <p>{this.props.info.status}</p>
-  
-              <p className={this.state.verMas}>{this.props.info.origin.name}</p>
+      <section className='peliculaspopulares'>
+        <a className="a-pelicula-home">
+          <article className="pelicula-home">
+            <img className="imagen-pelicula-home" src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" />
+            <div className="texto-home">
+              <p className="titulo"> <Link to={`/detalle/${this.props.id}`}> {this.props.name}</Link></p>
+            </div>
+          </article>
+        </a>
 
-            <button onClick={()=>this.verMas()}>Ver más</button>
-            <button onClick={()=> this.props.borrar(this.props.info.name)}>Borrar</button>
-      </div>
-
+      </section>
     )
+
   }
-
- 
-  }
+}
 
 
-
-export default peliculasCard
+export default PeliculasCard
