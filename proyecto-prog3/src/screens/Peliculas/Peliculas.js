@@ -13,16 +13,7 @@ class Peliculas extends Component {
             
         }
     }
-    traerMas(){
-        //Traer la siguiente página de personajes
-        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}`)
-            .then( res => res.json())
-            .then( data => this.setState({
-                peliculas: data.results.concat(this.state.peliculas),
-                nextUrl: data.info.next
-            }))
-            .catch()
-    }
+    
 
     componentDidMount(){
         fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}`)

@@ -13,24 +13,14 @@ class PeliculasCard extends Component {
 
     }
   }
-  verMas() {
-    if (this.state.verMas === 'show') {
-      this.setState({
-        verMas: 'hide'
-      })
-    } else {
-      this.setState({
-        verMas: 'show'
-      })
-    }
-  }
+  
 
   render() {
     return (
-      <section className='peliculaspopulares'>
-        <a className="a-pelicula-home">
-          <article className="pelicula-home">
-            <img className="imagen-pelicula-home" src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" />
+      <section className='populares'>
+        <a className="a-home">
+          <article className="article-home">
+            <img className="imagen-home" src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" />
             <div className="texto-home">
               <p className="titulo"> <Link to={`/detalle/${this.props.id}`}> {this.props.name}</Link></p>
             </div>

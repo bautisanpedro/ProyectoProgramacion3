@@ -220,7 +220,12 @@ main {
 
 .logo {
     max-width: 200px;
+    margin:0%
+}
 
+.footer {
+    display: flex;
+    justify-content: space-around;
 }
 
 /* Home */
@@ -228,9 +233,11 @@ main {
     font-family: 'Inter', sans-serif;
     font-size: 30px;
     text-align: center;
+    margin-top: 100px;
+    margin-bottom: 60px;
 }
 
-.peliculaspopulares {
+.populares {
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-wrap: wrap;
@@ -243,8 +250,29 @@ main {
     border-radius: 20px;
 }
 
-.peliculaspopulares img {
-    max-width: 220px;
+.populares img {
+    max-width: 260px;
     border-radius: 15px;
 
+}
+
+.boton-home {
+    background-color: #eee;
+    max-width: 220px;
+    border-radius: 20px;
+    height: 70px;
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    color: #5e17eb;
+    border-style: none;
+}
+
+.div-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 100px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+  
 }

@@ -3,8 +3,10 @@ import './styles.css'
 
 function Footer() {
   return (
-    <footer>
-        <p>Copyright © Dashboard 2022</p>
+    <footer className='footer'>
+        <p>Bautista Martinez</p>
+        <p>Bautista San Pedro</p>
+        <p>Gonzalo Preuss</p>
     </footer>
   )
 }
