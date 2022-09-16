@@ -18,14 +18,14 @@ class PeliculasCard extends Component {
   render() {
     return (
       <section className='populares'>
-        <a className="a-home">
+        <Link to={`/detallePelicula/${this.props.id}`}> 
           <article className="article-home">
             <img className="imagen-home" src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" />
             <div className="texto-home">
-              <p className="titulo"> <Link to={`/detalle/${this.props.id}`}> {this.props.name}</Link></p>
+              <p className="titulo"> {this.props.name}</p>
             </div>
           </article>
-        </a>
+          </Link>
 
       </section>
     )

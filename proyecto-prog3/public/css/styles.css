@@ -47,7 +47,8 @@ nav ul {
     display: flex;
     align-items: center;
     border-radius: 40px;
-
+    justify-content: center;
+    margin: 20px;
 }
 
 .busqueda input {
@@ -246,7 +247,7 @@ main {
     margin: 30px;
     background-color: #5e17eb;
     padding: 20px;
-    max-width: fit-content;
+    max-width: 300px;
     border-radius: 20px;
 }
 
@@ -276,3 +277,4 @@ main {
     margin-bottom: 100px;
   
 }
+

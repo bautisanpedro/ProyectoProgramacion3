@@ -49,7 +49,7 @@ class Series extends Component {
                     this.state.data.map((serie, idx) => 
                     <SeriesCard 
                     key={serie + idx} 
-                    name={serie.title} 
+                    name={serie.name} 
                     image={serie.poster_path}
                     descripcion={serie.overview}
                     id = {serie.id}

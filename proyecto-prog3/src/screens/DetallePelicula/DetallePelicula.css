@@ -1,0 +1,60 @@
+/*detalle*/
+
+.portada img {
+    border-radius: 15px;
+    max-width: 300px;
+}
+
+.portada {
+    border-radius: 15px;
+    max-width: 400px;
+    background-color: #5e17eb;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    margin-right: 30px;
+}
+
+.detalle{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: 20px;
+    margin-top: 40px;
+}
+
+.milanesa {
+    color: black;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.milanesa p {
+    background-color: #5e17eb;
+    color: #eee;
+    padding: 20px;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+
+
+.favoritos {
+    background-color: #5e17eb;
+    border-radius: 15px;
+    width: fit-content;
+    padding: 20px;
+    color: #eee;
+    border-style: none;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.material-symbols-outlined {
+    margin-left: 8px
+}
+

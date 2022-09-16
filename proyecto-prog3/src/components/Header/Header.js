@@ -8,7 +8,7 @@ function Header(props) {
             <Link to={'/'}>
                 <img className="logo" src="./img/logo.png" alt="" />
             </Link>
-            <Search />
+            
             <ul className="main-nav">
                 <li>
                     <Link to='/'>Home</Link>

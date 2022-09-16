@@ -17,14 +17,14 @@ class seriesCard extends Component {
         console.log(this.props);
         return (
           <section className='populares'>
-            <a className="a-home">
+            <Link to={`/detalleSerie/${this.props.id}`}>
               <article className="article-home">
                 <img className="imagen-home" src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" />
                 <div className="texto-home">
-                  <p className="titulo-home"> <Link to={`/detalle/${this.props.id}`}> {this.props.name}</Link></p>
+                  <p className="titulo-home">  {this.props.name}</p>
                 </div>
               </article>
-            </a>
+              </Link>
     
           </section>
         )
