@@ -29,7 +29,7 @@ function App() {
         <Route path = "/Peliculas" component={Peliculas} />
         <Route path= "/detallePelicula/:id" component={DetallePelicula} />
         <Route path="/detalleSerie/:id" component={DetalleSerie}/>
-        <Route component={NotFound} />
+        <Route path='' component={NotFound} />
       </Switch>  
       
       <Footer />
