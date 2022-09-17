@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import PeliculasCard from '../../components/PeliculasCard/PeliculasCard'
 
 
-class Peliculas extends Component {
+class Cartelera extends Component {
 
     
     constructor(props){
@@ -11,13 +11,12 @@ class Peliculas extends Component {
             data: [],
             verMas: "hide",
             cargarMas:''
+
             
         }
     }
-    
-
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=1`)
+        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=1`)
         .then(resp => resp.json())
         .then(data => this.setState({
             data: data.results.slice(0,12) 
@@ -33,7 +32,7 @@ class Peliculas extends Component {
     return (
     <>
         <div className="titulo-pp">
-            <p>Peliculas Populares</p>
+            <p>Peliculas En Cartelera</p>
         </div>
         <section className="card-container">
             {
@@ -57,4 +56,4 @@ class Peliculas extends Component {
 }
 
 
-export default Peliculas
+export default Cartelera

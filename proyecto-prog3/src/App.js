@@ -2,8 +2,8 @@ import React from "react";
 
 /* screens */
 import Home from "./screens/Home/Home"
-import Series from "./screens/Series/Series"
-import Peliculas from "./screens/Peliculas/Peliculas"
+import TodasPopulares from "./components/TodasPeliculas/TodasPopulares"
+import TodasCartelera from "./components/TodasSeries/TodasCartelera"
 import Favoritos from "./screens/Favoritos/Favoritos"
 import NotFound from "./screens/NotFound/NotFound"
 import DetallePelicula from "./screens/DetallePelicula/DetallePelicula"
@@ -25,8 +25,8 @@ function App() {
       <Switch>
         <Route exact path = "/" component={Home} />
         <Route path = "/Favoritos" component={Favoritos} />
-        <Route path = "/Series" component={Series} />
-        <Route path = "/Peliculas" component={Peliculas} />
+        <Route path = "/TodasCartelera" component={TodasCartelera} />
+        <Route path = "/TodasPopulares" component={TodasPopulares} />
         <Route path= "/detallePelicula/:id" component={DetallePelicula} />
         <Route path="/detalleSerie/:id" component={DetalleSerie}/>
         <Route path='' component={NotFound} />
