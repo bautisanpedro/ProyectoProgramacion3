@@ -16,11 +16,11 @@ import Footer from './components/Footer/Footer'
 import { Route, Switch } from "react-router-dom"
 
 function App() {
-  const nav = ['Inicio', 'Peliculas', 'Series', 'Favoritos']
+
 
   return (
     <div>
-      <Header opciones={nav} nombre={'Ramiro'} />
+      <Header/>
 
       <Switch>
         <Route exact path = "/" component={Home} />

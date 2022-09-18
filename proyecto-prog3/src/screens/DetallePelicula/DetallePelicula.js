@@ -39,7 +39,7 @@ class Detalle extends Component {
                       
                             <p>Fecha de Estreno: {this.state.detalle.release_date}</p>
                             <p>Rating: {this.state.detalle.vote_average}</p> 
-                            <button className="favoritos">Agregar a Favoritos  <span className="material-symbols-outlined">favorite</span></button>
+                            <button className="btn">Agregar a Favoritos  <span className="material-symbols-outlined">favorite</span></button>
                             <p>{this.state.detalle.overview}</p>
                     
                     </div>
