@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Search from '../Search/Search';
+
 
 function Header(props) {
     return (
@@ -17,10 +17,10 @@ function Header(props) {
                     <Link to='/favoritos'>Favoritos</Link>
                 </li>
                 <li>
-                    <Link to='/peliculas'>Películas</Link>
+                    <Link to='/TodasPopulares'>Populares</Link>
                 </li>
                 <li>
-                    <Link to='/series'>Series</Link>
+                    <Link to='/TodasCartelera'>En cartelera</Link>
                 </li>
 
             </ul>

@@ -1,8 +1,8 @@
 import React,{Component} from 'react'
-import PeliculasCard from '../../components/PeliculasCard/PeliculasCard'
+import PeliculasCard from '../PeliculasCard/PeliculasCard'
 
 
-class Peliculas extends Component {
+class TodasCartelera extends Component {
 
     
     constructor(props){
@@ -17,7 +17,7 @@ class Peliculas extends Component {
     
 
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=1`)
+        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=1`)
         .then(resp => resp.json())
         .then(data => this.setState({
             data: data.results.slice(0,12) 
@@ -26,6 +26,17 @@ class Peliculas extends Component {
         .catch(err => console.log(err)) 
     }
     
+    masMovies(){
+        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=1${this.state.nextPage + 1}`)
+        .then(resp => resp.json())
+        .then(data => this.setState({
+            data: data.results,
+            cargarMas: data.page + 1
+            
+        }))
+        .catch(err => console.log(err))
+
+    }
 
     
 
@@ -33,7 +44,7 @@ class Peliculas extends Component {
     return (
     <>
         <div className="titulo-pp">
-            <p>Peliculas Populares</p>
+            <p>Todas las peliculas en cartelera</p>
         </div>
         <section className="card-container">
             {
@@ -51,10 +62,11 @@ class Peliculas extends Component {
                     <img src="https://giphy.com/embed/3y0oCOkdKKRi0"/>
             }
         </section>
+        <button className='boton' type="button" onClick={ ()=>this.masMovies()}>Cargar más películas</button>
      </>
     )
   }
 }
 
 
-export default Peliculas
+export default TodasCartelera
