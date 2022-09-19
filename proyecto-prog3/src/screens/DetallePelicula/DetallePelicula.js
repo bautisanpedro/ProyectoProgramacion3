@@ -8,7 +8,8 @@ class Detalle extends Component {
         super(props);
         this.state = {
             detalle: {},
-
+            id: Number(props.match.params.id),
+            fav: 'Agregar a Favoritos',
 
         }
     }
@@ -23,9 +24,47 @@ class Detalle extends Component {
             })
             .catch(error => console.log(error))
 
+            let favoritos = [];
+            let recuperoStorage = localStorage.getItem('favoritos')
+    
+            if(recuperoStorage !== null){
+                let favoritosArray = JSON.parse(recuperoStorage);
+                favoritos = favoritosArray
+            }
+    
+            if(favoritos.includes(this.state.id)){
+                this.setState({
+                    fav: 'Quitar de favoritos'
+                })
+            }
+
     }
+    funcionalidadFavoritos(id){
+        let favoritos = [];
+        let recuperoStorage = localStorage.getItem('favoritos')
 
+        if(recuperoStorage !== null){
+            let favoritosArray = JSON.parse(recuperoStorage);
+            favoritos = favoritosArray
+        }
 
+        if(favoritos.includes(id)){
+            favoritos = favoritos.filter(unId => unId !== id);
+            this.setState({
+                fav: 'Agregar a favoritos'
+            })
+        } else {
+            favoritos.push(id);
+            this.setState({
+                fav: 'Quitar de favoritos'
+            })
+        }
+
+        let favoritosString = JSON.stringify(favoritos);
+        localStorage.setItem('favoritos', favoritosString);
+
+        console.log(localStorage);
+    }
     render() {
         return (
             <>
@@ -39,7 +78,7 @@ class Detalle extends Component {
                       
                             <p>Fecha de Estreno: {this.state.detalle.release_date}</p>
                             <p>Rating: {this.state.detalle.vote_average}</p> 
-                            <button className="favoritos">Agregar a Favoritos  <span className="material-symbols-outlined">favorite</span></button>
+                            <button className="favoritos" onClick={() => this.funcionalidadFavoritos(this.state.id)}> {this.state.fav} </button>
                             <p>{this.state.detalle.overview}</p>
                     
                     </div>
