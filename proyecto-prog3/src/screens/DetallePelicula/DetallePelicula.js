@@ -73,7 +73,7 @@ class Detalle extends Component {
         return (
             <>
            
-           {this.state.detalle === "" ? <h3>Cargando...</h3> : 
+           {this.state.detalle === 0 ? <h3>Cargando...</h3> : 
          
                 <main className="detalle-pelicula">
               
@@ -87,9 +87,8 @@ class Detalle extends Component {
                             <p>Rating: {this.state.detalle.vote_average}</p> 
 
                             <p>Genero: {this.state.detalle.genres ? this.state.detalle.genres[0].name : <></>}</p>
-                            <button className="btn">Agregar a Favoritos  <span className="material-symbols-outlined">favorite</span></button>
-
-                            <button className="favoritos" onClick={() => this.funcionalidadFavoritos(this.state.id)}> {this.state.fav} </button>
+                        
+                            <button className="btn" onClick={() => this.funcionalidadFavoritos(this.state.id)}> {this.state.fav} <span className="material-symbols-outlined">favorite</span></button>
 
                             <p>{this.state.detalle.overview}</p>
                     

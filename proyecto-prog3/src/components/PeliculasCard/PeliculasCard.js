@@ -27,51 +27,47 @@ class PeliculasCard extends Component {
     }
   }
 
-      
-     
-    
-  
-  componentDidMount(){
+
+  componentDidMount() {
     let favoritos = [];
     let recuperoStorage = localStorage.getItem('favoritos')
-    
-    if(recuperoStorage !== null){
+
+    if (recuperoStorage !== null) {
       let favoritosArray = JSON.parse(recuperoStorage);
       favoritos = favoritosArray
     }
-    if(favoritos.includes(this.props.id)){
+    if (favoritos.includes(this.props.id)) {
       this.setState({
         fav: 'Quitar de favoritos'
       })
     }
   }
-  funcionalidadFavoritos(id){
-        let favoritos = [];
-        let recuperoStorage = localStorage.getItem('favoritos')
+  funcionalidadFavoritos(id) {
+    let favoritos = [];
+    let recuperoStorage = localStorage.getItem('favoritos')
 
-        if(recuperoStorage !== null){
-            let favoritosArray = JSON.parse(recuperoStorage);
-            favoritos = favoritosArray
-        }
-
-
-        if(favoritos.includes(id)){
-            favoritos = favoritos.filter(unId => unId !== id);
-            this.setState({
-              fav: 'Agregar a favoritos'
-            })
-        } else {
-            favoritos.push(id);
-            this.setState({
-              fav: 'Quitar de favoritos'
-            })
-        }
-
-        let favoritosString = JSON.stringify(favoritos);
-        localStorage.setItem('favoritos', favoritosString);
-
-        console.log(localStorage);
+    if (recuperoStorage !== null) {
+      let favoritosArray = JSON.parse(recuperoStorage);
+      favoritos = favoritosArray
     }
+
+    if (favoritos.includes(id)) {
+      favoritos = favoritos.filter(unId => unId !== id);
+      this.setState({
+        fav: 'Agregar a favoritos'
+      })
+    } else {
+      favoritos.push(id);
+      this.setState({
+        fav: 'Quitar de favoritos'
+      })
+    }
+
+    let favoritosString = JSON.stringify(favoritos);
+    localStorage.setItem('favoritos', favoritosString);
+
+    console.log(localStorage);
+  }
   render() {
     return (
       <section className='detalle'>
@@ -80,13 +76,15 @@ class PeliculasCard extends Component {
             <img className="imagen-detalle" src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" />
             <div className="texto-detalle">
               <p className="titulo-popular"> {this.props.name}</p>
-            </div>     
+            </div>
           </article>
         </Link>
- 
- <p onClick={() => this.verMas()} className='more'> {this.state.textoDetalle} </p>
 
-<p className={this.state.estadoDetalle} >Descripcion: {this.props.descripcion}</p>
+        <button className="favoritos" onClick={() => this.funcionalidadFavoritos(this.props.id)}> {this.state.fav} </button>
+
+        <p onClick={() => this.verMas()}> {this.state.textoDetalle} </p>
+
+        <p className={this.state.estadoDetalle} >Descripcion: {this.props.descripcion}</p>
 
       </section>
 
