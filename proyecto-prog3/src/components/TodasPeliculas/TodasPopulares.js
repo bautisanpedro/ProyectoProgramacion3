@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import PeliculasCard from '../PeliculasCard/PeliculasCard'
-
+import Form  from "../FormFiltro/form"
 
 class TodasPopulares extends Component {
 
@@ -9,6 +9,7 @@ class TodasPopulares extends Component {
         super(props)
         this.state={
             data: [],
+            peliculas: [],
             verMas: "hide",
             cargarMas:''
             
@@ -20,8 +21,8 @@ class TodasPopulares extends Component {
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=1`)
         .then(resp => resp.json())
         .then(data => this.setState({
-            data: data.results.slice(0,12) 
-            
+            data: data.results.slice(0,12), 
+            peliculas: data.results.slice(0,12)
         }))
         .catch(err => console.log(err)) 
     }
@@ -38,18 +39,24 @@ class TodasPopulares extends Component {
 
     }
 
-    
+    filtrarMovies(Fil) { 
+        let filtrarMovies = this.state.data.filter( oneMovie => oneMovie.title.toLowerCase().includes(Fil.toLowerCase()))
+        this.setState({
+            peliculas: filtrarMovies,
+        }, ()=>console.log(this.state))
+    }
 
-  render() {
+    render() {
     return (
     <>
         <div className="titulo-pp">
             <p>Todas las peliculas populares</p>
         </div>
+        <Form filtrarMovies={(Fil) => this.filtrarMovies(Fil)}></Form>
         <section className="card-container">
             {
-                this.state.data.length > 0 ?
-                    this.state.data.map((peli, idx) => 
+                this.state.peliculas.length === 0 ? <h1>Cargando...</h1>:
+                    this.state.peliculas.map((peli, idx) => 
                     <PeliculasCard 
                     key={peli + idx} 
                     name={peli.title} 
@@ -57,9 +64,7 @@ class TodasPopulares extends Component {
                     descripcion={peli.overview}
                     id = {peli.id}
                     agregar = {(id) => this.agregarFavoritos(id)}
-
-                    />):
-                    <img src="https://giphy.com/embed/3y0oCOkdKKRi0"/>
+                    />)
             }
         </section>
         <button className='boton' type="button" onClick={ ()=>this.masMovies()}>Cargar más películas</button>
