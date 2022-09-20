@@ -37,17 +37,18 @@ class Favorites extends Component{
     render(){
         return(
             <main>
+                
                 <h2>Tus películas favoritas</h2>
                 <section className='cardContainer'>
                     { 
-                        this.state.pelis.map((result, idx) => 
+                        this.state.peliculas === 0 ? <h1>Cargando...</h1>: this.state.pelis.map((result, idx) => 
                         <PeliculasCard 
                         key={result + idx} 
                         name={result.title} 
                         image={result.poster_path}
                         descripcion={result.overview}
                         id = {result.id}
-                        agregar = {(id) => this.agregarFavoritos(id)}
+                        agregar = {(id) => result.agregarFavoritos(id)}
                         />)
                     }
                 </section>
@@ -55,31 +56,4 @@ class Favorites extends Component{
         )
     }
 }
-    /*
-    componentDidMount(){
-        let storage = localStorage.getItem('favoritos')
-        if(storage!== null){
-            let parsedStorage = JSON.parse(storage)
-            
-            Promise.all(
-                parsedStorage.map(elm =>{
-                    return(
-                        fetch(`https://api.themoviedb.org/3/movie/550?api_key=6e9de608b8eb72c41459072aa8da9928${elm}`)
-                        .then(resp => resp.json())
-                        .then(data => data))
-                })
-            )
-            .then(data => console.log(data))
-        }
-    }
-
-    render(){
-        return(
-            <h1>
-                Favoritos
-            </h1>
-        )
-    }
-}
-*/
 export default Favorites

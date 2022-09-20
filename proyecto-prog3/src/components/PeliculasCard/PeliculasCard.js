@@ -20,7 +20,7 @@ class PeliculasCard extends Component {
       let favoritosArray = JSON.parse(recuperoStorage);
       favoritos = favoritosArray
     }
-    if(favoritos.includes(this.state.id)){
+    if(favoritos.includes(this.props.id)){
       this.setState({
         fav: 'Quitar de favoritos'
       })
