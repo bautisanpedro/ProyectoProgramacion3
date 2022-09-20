@@ -83,14 +83,10 @@ class PeliculasCard extends Component {
             </div>     
           </article>
         </Link>
+ 
+ <p onClick={() => this.verMas()} className='more'> {this.state.textoDetalle} </p>
 
-        <button className='boton-ver' onClick={() => this.verMas()}>Ver mas</button>
-        <article className={this.state.verMas === true}>
-          <p className={this.state.estadoDetalle}>{this.props.descripcion}</p>
-        </article>
-
-          
-      <button className="favoritos" onClick={() => this.funcionalidadFavoritos(this.props.id)}> {this.state.fav} </button>
+<p className={this.state.estadoDetalle} >Descripcion: {this.props.descripcion}</p>
 
       </section>
 

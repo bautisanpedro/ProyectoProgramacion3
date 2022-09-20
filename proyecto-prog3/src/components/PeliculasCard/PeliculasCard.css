@@ -19,6 +19,7 @@
     border-radius: 20px;
     max-height: fit-content;
     align-items: center;
+    color: #eee;
 }
 
 .detalle img {
@@ -43,5 +44,9 @@
     font-family: 'Inter', sans-serif;
     font-size: 15px;
     border-style: none;
+}
+
+.hide {
+
 }
 
