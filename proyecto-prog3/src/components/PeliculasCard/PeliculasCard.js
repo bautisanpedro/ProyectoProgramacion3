@@ -9,12 +9,49 @@ class PeliculasCard extends Component {
     super(props)
     this.state = {
       verMas: 'hide',
-      favoritos: false
-
+      fav: 'Agregar a Favoritos',
     }
   }
-  
+  componentDidMount(){
+    let favoritos = [];
+    let recuperoStorage = localStorage.getItem('favoritos')
+    
+    if(recuperoStorage !== null){
+      let favoritosArray = JSON.parse(recuperoStorage);
+      favoritos = favoritosArray
+    }
+    if(favoritos.includes(this.state.id)){
+      this.setState({
+        fav: 'Quitar de favoritos'
+      })
+    }
+  }
+  funcionalidadFavoritos(id){
+        let favoritos = [];
+        let recuperoStorage = localStorage.getItem('favoritos')
 
+        if(recuperoStorage !== null){
+            let favoritosArray = JSON.parse(recuperoStorage);
+            favoritos = favoritosArray
+        }
+
+        if(favoritos.includes(id)){
+            favoritos = favoritos.filter(unId => unId !== id);
+            this.setState({
+              fav: 'Agregar a favoritos'
+            })
+        } else {
+            favoritos.push(id);
+            this.setState({
+              fav: 'Quitar de favoritos'
+            })
+        }
+
+        let favoritosString = JSON.stringify(favoritos);
+        localStorage.setItem('favoritos', favoritosString);
+
+        console.log(localStorage);
+    }
   render() {
     return (
       <section className='populares'>
@@ -24,9 +61,10 @@ class PeliculasCard extends Component {
             <div className="texto-home">
               <p className="titulo"> {this.props.name}</p>
             </div>
+            
           </article>
           </Link>
-
+      <button className="favoritos" onClick={() => this.funcionalidadFavoritos(this.props.id)}> {this.state.fav} </button>
       </section>
     )
 

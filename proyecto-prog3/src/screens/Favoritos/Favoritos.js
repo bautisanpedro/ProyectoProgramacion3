@@ -38,7 +38,7 @@ class Favorites extends Component{
         return(
             <main>
                 <h2>Tus películas favoritas</h2>
-                 <section className='cardContainer'>
+                <section className='cardContainer'>
                     { 
                         this.state.pelis.map((result, idx) => 
                         <PeliculasCard 
