@@ -1,6 +1,7 @@
-import React,{Component} from 'react'
+import React,{Component} from 'react' 
 import PeliculasCard from '../../components/PeliculasCard/PeliculasCard'
 
+const api_key = '6e9de608b8eb72c41459072aa8da9928'
 
 class Peliculas extends Component {
 
@@ -15,21 +16,21 @@ class Peliculas extends Component {
         }
     }
     
-
-    componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=1`)
+    componentDidMount(){  // metodo -> lo ejecutamos despues del renderizado del componente en el dom
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`) // aca incluimos el pedido a la api
         .then(resp => resp.json())
         .then(data => this.setState({
-            data: data.results.slice(0,12) 
-            
+            data: data.results.slice(0,12)
+      
         }))
+        
         .catch(err => console.log(err)) 
     }
     
 
     
 
-  render() {
+  render() {       
     return (
     <>
         <div className="titulo-pp">
@@ -48,7 +49,7 @@ class Peliculas extends Component {
                     agregar = {(id) => this.agregarFavoritos(id)}
 
                     />):
-                    <img src="https://giphy.com/embed/3y0oCOkdKKRi0"/>
+                    <img src="https://giphy.com/gifs/perfect-loops-17mNCcKU1mJlrbXodo"/>
             }
         </section>
      </>

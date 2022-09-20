@@ -15,7 +15,7 @@
     margin-right: 30px;
 }
 
-.detalle{
+.detalle-pelicula{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -41,7 +41,7 @@
 
 
 
-.favoritos {
+.btn {
     background-color: #5e17eb;
     border-radius: 15px;
     width: fit-content;

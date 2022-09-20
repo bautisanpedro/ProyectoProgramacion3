@@ -44,7 +44,7 @@ buscador(name){
             { 
                 this.state.resultados.length > 0 ? this.state.resultados.map((result, idx) => 
                 <PeliculasCard 
-                key={result + idx} 
+                key={result.id} 
                 name={result.title} 
                 image={result.poster_path}
                 descripcion={result.overview}

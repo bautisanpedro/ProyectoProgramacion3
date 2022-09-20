@@ -1,9 +1,9 @@
-.titulo {
+.titulo-popular {
+    
     font-family: 'Inter', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
-    margin-top: 100px;
-    margin-bottom: 60px;
+    color: #eee;
 }
 
 .detalle {
@@ -17,6 +17,8 @@
     padding: 20px;
     max-width: 300px;
     border-radius: 20px;
+    max-height: fit-content;
+    align-items: center;
 }
 
 .detalle img {
@@ -25,23 +27,21 @@
 
 }
 
-.boton-detalle {
-    background-color: #eee;
-    max-width: 220px;
-    border-radius: 20px;
-    height: 70px;
+
+
+.boton-ver {
+    color: #eee;
+    background-color: #5e17eb;
     font-family: 'Inter', sans-serif;
-    font-size: 19px;
-    color: #5e17eb;
+    font-size: 15px;
     border-style: none;
 }
 
-.div-btn {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 100px;
-    margin-top: 20px;
-    margin-bottom: 100px;
-  
+.extra{
+    color: #eee;
+    background-color: #5e17eb;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border-style: none;
 }
+

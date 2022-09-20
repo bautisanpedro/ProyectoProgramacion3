@@ -8,11 +8,11 @@ class Detalle extends Component {
         super(props);
         this.state = {
             detalle: {},
-
-
         }
     }
+    
     componentDidMount() {
+      
         fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${api_key}`)
             .then(resp => resp.json())
             .then(data => {
@@ -27,10 +27,14 @@ class Detalle extends Component {
 
 
     render() {
+        console.log(this.state.detalle.genres);
         return (
             <>
-
-                <main className="detalle">
+           
+           {this.state.detalle === "" ? <h3>Cargando...</h3> : 
+         
+                <main className="detalle-pelicula">
+              
                     <div className="portada">
                         <img src={`https://image.tmdb.org/t/p/w342/${this.state.detalle.poster_path}`} alt=""></img>
                     </div>
@@ -39,13 +43,15 @@ class Detalle extends Component {
                       
                             <p>Fecha de Estreno: {this.state.detalle.release_date}</p>
                             <p>Rating: {this.state.detalle.vote_average}</p> 
+                            <p>Genero: {this.state.detalle.genres ? this.state.detalle.genres[0].name : <></>}</p>
                             <button className="btn">Agregar a Favoritos  <span className="material-symbols-outlined">favorite</span></button>
                             <p>{this.state.detalle.overview}</p>
                     
                     </div>
+                 
                 </main>
+            }
             </>
-
         )
     }
 }

@@ -18,12 +18,12 @@ import { Route, Switch } from "react-router-dom"
 function App() {
 
 
-  return (
+  return ( // el componente Route recibe los atributos path y component
     <div>
       <Header/>
 
       <Switch>
-        <Route exact path = "/" component={Home} />
+        <Route exact path = "/" component={Home} />  
         <Route path = "/Favoritos" component={Favoritos} />
         <Route path = "/TodasCartelera" component={TodasCartelera} />
         <Route path = "/TodasPopulares" component={TodasPopulares} />
